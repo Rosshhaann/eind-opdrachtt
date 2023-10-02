@@ -9,7 +9,26 @@ body {
   font-family: 'Ubuntu', sans-serif;
   color: black;
   font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation-duration:5000ms;
+  animation-name: start-up;
+  transition:8000ms;
 }
+
+@keyframes start-up {
+  0% {
+    transform: translateX(100%);
+    opacity:0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+
 
 
 
@@ -27,6 +46,8 @@ h3 {
   font-size: 1.85rem;
 }
 
+
+
 /* NavBar */
 nav {
   display: flex;
@@ -37,6 +58,7 @@ nav {
   padding: 0 2vw;
 
 }
+
 
 nav img {
   width: 150px;
@@ -53,15 +75,17 @@ footer a {
   border-radius: 45px 10px;
   font-weight: 600;
   cursor: pointer;
+  transition: all 350ms ease-in-out;
   letter-spacing: 2px;
 }
+
 
 nav a:hover,
 footer a:hover {
   background-color: black;
   color: white;
   box-shadow: 15px 10px 10px rgb(115, 113, 113);
-  transition: 650ms;
+  transition: all 650ms ease-in-out;
 }
 
 /*  Headers & Articles anchors */
@@ -136,34 +160,55 @@ header {
   flex-direction: column;
   align-items: center;
   border-bottom: 3px solid black;
-  padding: 10vh 5vw;
+  padding: 13vh 5vw;
 }
 
 /* Articles */
 .articleBox {
-  display: flex;
-  gap: 0 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 10px 20px;
 }
+
+
 
 article {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  transition: ease-in-out 500ms;
+  justify-content: space-between;
   border: 3px solid black;
   border-radius: 10px;
+  box-shadow: 60px -20px 20px rgba(115, 113, 113, 0.44);
+  transform: skewY(10deg);
+  transition: all ease-in-out 400ms;
+  animation-duration: 5000ms;
+  animation-name: rotatie;
 }
 
+@keyframes rotatie {
+  0% {
+    transform: skewY(100deg);
+  }
+
+  100% {
+    transform: skewY(10deg);
+  }
+}
+
+
 article:hover {
-  box-shadow: 10px 10px 20px rgb(115, 113, 113);
+  background-color: white;
+  box-shadow: 30px 0px 20px rgba(115, 113, 113, 0.34);
+  z-index: 1;
   cursor: pointer;
-  transition: ease-in-out 500ms;
-  transform: scale(1.1);
+  transition: all ease-in-out 900ms;
+  transform: scale(1.2);
 }
 
 article img {
   width: 100%;
-  height: 300px;
+  height: 30vh;
   object-fit: cover;
   border-bottom: 3px solid black;
 }
@@ -177,7 +222,7 @@ article a {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 20px;
+  padding: 35px 20px;
 
 }
 
@@ -266,7 +311,7 @@ textarea {
   gap: 0 20px;
 }
 
-
+/* form buttons and hover */
 form .btn {
   display: flex;
   justify-content: center;
@@ -321,7 +366,7 @@ footer img {
 
 
 /* Media Queries */
-@media (max-width:480px) {
+@media (orientation: portrait) {
 
   nav,
   .navBarRight,
@@ -331,14 +376,41 @@ footer img {
     align-items: center;
   }
 
+  .navBarRight:last-child {
+    padding-bottom: 2vh;
+  }
+
+  .headerAnchor {
+    width: 65vw;
+    padding: 15px;
+  }
+
+  .headerBoxLeft {
+    width: 70vw;
+  }
+
   header h1 {
     font-size: 2rem;
+    text-align: center;
   }
 
   .articleBox {
     display: flex;
     flex-direction: column;
     gap: 30px 0px;
+  }
+
+  article {
+    transform: none;
+    background-color: white;
+    box-shadow: -20px 20px 15px rgba(115, 113, 113, 0.5)
+  }
+
+  article:hover {
+    background-color: white;
+    box-shadow: 15px -5px 5px rgba(115, 113, 113, 0.4);
+    transition: all ease-in-out 500ms;
+    transform: scale(1.0);
   }
 
   form {
