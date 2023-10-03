@@ -12,13 +12,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  animation-duration: 5000ms;
-  animation-name: start-up;
+  animation: start-up 5s;
+
 }
 
 @keyframes start-up {
   0% {
-    transform: translateX(100%);
+    transform: translateX(-100%);
     opacity: 0;
   }
 
@@ -153,11 +153,31 @@ header {
 }
 
 /* Articles */
+@keyframes h2-bounce {
+  0%{
+    transform: translateY(0vh);
+    opacity: 0;
+  }
+
+  55% {
+    transform: translateY(-20vh);
+    padding: 6vh;
+    opacity: 1;
+  }
+  100%{
+    transform:translateY(0px);
+  }
+}
+
+#myProjects {
+  animation: h2-bounce 5s 2 ease-in-out  alternate-reverse ;
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
 .articleBox {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  gap: 10px 50px;
+  gap: 10px 40px;
 }
 
 article {
@@ -168,28 +188,30 @@ article {
   border-radius: 10px;
   box-shadow: 60px -20px 20px rgba(115, 113, 113, 0.44);
   transform: skewY(10deg);
-  transition: all ease-in-out 400ms;
-  animation-duration: 5000ms;
-  animation-name: rotatie;
+  transition: all ease-in-out 1000ms;
+  animation:rotatie 5s ease-in-out ;
+  filter:blur(5px)
 }
 
 @keyframes rotatie {
   0% {
-    transform: skewY(100deg);
+    transform:translateY(-250px);
   }
-
   100% {
-    transform: skewY(10deg);
+    transform: skewY(10deg),translateY(0);
   }
 }
+
 
 article:hover {
   background-color: white;
   box-shadow: 30px 0px 20px rgba(115, 113, 113, 0.34);
   cursor: pointer;
-  transition: all ease-in-out 900ms;
-  transform: scale(1.2);
+  transition: all ease-in-out 500ms;
+  transform: scale(1.28);
   z-index: 1;
+  filter: blur(0px);
+  
 }
 
 article img {
@@ -293,24 +315,7 @@ textarea {
 }
 
 /* form buttons and hover */
-@keyframes bounce {
-  0% {
-    transform: translateY(-90px);
-    padding:0vh;
-    opacity: 0;
-  }
 
-  100% {
-    transform: translateY(0px);
-    padding: 8vh;
-    opacity: 1;
-  }
-}
-
-#myProjects {
-  animation: bounce 4000ms  infinite alternate-reverse ease-in-out;
-  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
-}
 
 form .btn {
   display: flex;
