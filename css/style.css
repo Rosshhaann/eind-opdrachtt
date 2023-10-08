@@ -1,4 +1,4 @@
-@import url(https://db.onlinewebfonts.com/c/f018489f0ca9a68790219a839d630c64?family=Aquire);
+@import url('https://fonts.cdnfonts.com/css/aquire');
 
 * {
   box-sizing: border-box;
@@ -8,7 +8,7 @@
 
 body {
   margin: 0 auto;
-  font-family: 'Aquire', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Aquire', sans-serif;
   color: black;
   font-weight: 500;
   display: flex;
@@ -271,6 +271,7 @@ form div {
   flex-direction: column;
 }
 
+
 .input-width input,
 .input-width select {
   width: 100%;
@@ -305,10 +306,11 @@ textarea:hover {
 }
 
 textarea {
-  margin: 10px 0;
+  margin: 1vh 0;
   border: 2px solid black;
   border-radius: 5px;
   transition: all 650ms ease-in-out;
+  font-family: 'Aquire', sans-serif;
 }
 
 .newsLetter-options {
