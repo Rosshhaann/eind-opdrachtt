@@ -281,6 +281,7 @@ form div {
   padding-left: 10px;
   border: 6px solid white;
   transition: all 650ms ease-in-out;
+  font-family: 'Aquire', sans-serif;
 }
 
 .input-width input:hover,
